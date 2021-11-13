@@ -1,0 +1,30 @@
+#include<stdio.h>
+int main()
+{
+	int n,b[100][100];
+	while(scanf("%d",&n)==1)
+	{
+		int j=1;
+		for(int k=0;k<n;k++)
+		{b[k][0]=1;
+		 b[k][j]=0;
+		 j++;}
+		for(int k=1;k<n;k++)
+			for(int l=0;l<n;l++)
+				b[k][l+1]=b[k-1][l]+b[k-1][l+1];
+		int sum=1;
+		for(int k=0;k<n;k++)
+			{for(int l=0;l<sum;l++)
+			{if(n==1)printf("1\n");
+			 else if(l==sum-1&&n>=1)printf("%d\n", b[k][l]);
+			 else if(l!=sum-1&&n>=1)
+				 printf("%d ", b[k][l]);
+			}
+			sum++;
+			}
+		printf("\n");
+	}
+	return 0;
+}
+		                
+
