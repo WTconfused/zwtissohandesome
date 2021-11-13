@@ -1,0 +1,39 @@
+#include<stdio.h>
+int main()
+{
+	int n,b[10][10],zwt,hl,max,min,yxy;
+	while(~scanf("%d", &n))
+	{
+		int lz=0;
+		for(int k=0;k<n;k++)
+			for(int i=0;i<n;i++)
+				scanf("%d", &b[k][i]);
+		for(int k=0;k<n;k++)
+		{        
+			max=b[k][0];hl=0;
+			for(int i=0;i<n;i++)
+			{if(b[k][i]>max)
+				{max=b[k][i];
+				zwt=k;hl=i;}
+			 
+			}
+			
+			min=b[0][hl];
+			for(int p=0;p<n;p++)
+			{
+			  if(b[p][hl]<min)
+			  {min=b[p][hl];
+				yxy=p;
+			  }
+			  else
+			  yxy=0;
+			}
+		if(max==min)
+		{printf("%d %d\n", zwt, hl);lz=1;}
+		}
+		if(lz==0)printf("NO\n");
+	}
+	return 0;
+}
+
+
