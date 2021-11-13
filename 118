@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int n,m,b[100][100],c[100][100];
+	while(scanf("%d%d", &n, &m)==2)
+	{
+		int flag=1;
+		for(int k=0;k<n;k++)
+		{for(int i=0;i<m;i++)
+			{b[k][i]=flag++;
+		        }
+		}
+		memcpy(c,b,sizeof(b));
+		for(int k=0;k<n;k++)
+		{
+			if(k%2==1)
+			{for(int i=0;i<=(m-2)/2;i++)
+				{int temp=c[k][i];c[k][i]=c[k][m-1-i];c[k][m-1-i]=temp;}
+			}
+		}
+		for(int k=0;k<n;k++)
+                {for(int i=0;i<m;i++)
+			{if(i!=m-1)printf("%2d ",c[k][i]);
+			 else
+				 printf("%2d\n", c[k][i]);
+			}
+		}
+	}
+	return 0;
+}
+
