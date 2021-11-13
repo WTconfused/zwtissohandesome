@@ -1,0 +1,22 @@
+#include<stdio.h>
+int main()
+{
+	int n,m,b[100][100],temp;
+	while(scanf("%d%d", &n, &m)==2)
+        {for(int k=0;k<n;k++)
+		for(int i=0;i<m;i++)
+			scanf("%d", &b[k][i]);
+	 for(int i=0;i<m;i++)
+	  {temp=b[0][i];b[0][i]=b[n-1][i];b[n-1][i]=temp;}
+	 for(int k=0;k<n;k++)
+	 {int sum=0;for(int i=0;i<m;i++)
+		{sum+=b[k][i];
+		if(i!=m-1)printf("%d ", b[k][i]);
+		 else
+		           printf("%d %d\n", b[k][i],sum);
+		}
+	  }
+	 }
+	return 0;
+}
+
