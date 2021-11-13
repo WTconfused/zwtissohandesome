@@ -1,0 +1,24 @@
+#include<stdio.h>
+int main()
+{
+	int n,b[10][10];
+	while(scanf("%d", &n)==1)
+	{
+		for(int k=0;k<n;k++)
+			for(int i=0;i<n;i++)
+				scanf("%d", &b[k][i]);
+		int flag=0;
+		int sum=0;
+		for(int i=1;i<n;i++)
+		{for(int l=0;l<=flag;l++)
+			{ if(b[i][l]==0)
+				 sum++;}
+			flag++;}
+		if(sum==n*(n-1)/2)printf("YES\n");
+		else
+			printf("NO\n");
+	}
+	return 0;
+}
+
+
